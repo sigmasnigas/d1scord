@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>SZCZEPEK</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #66d0f3, #1a9bd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+        .container img {
+            width: 300px;
+            height: auto;
+            border-radius: 20px;
+            animation: sway 4s ease-in-out infinite alternate;
+        }
+        .message {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        @keyframes sway {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body onclick="playMusic()">
+    <div class="container">
+        <div class="message" id="clickMessage">Kliknij gdziekolwiek, aby włączyć muzykę</div>
+        <img src="image.png" alt="Szczepek">
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Twoja przeglądarka nie obsługuje odtwarzania audio.
+    </audio>
+    <script>
+        function playMusic() {
+            const music = document.getElementById('bgMusic');
+            const msg = document.getElementById('clickMessage');
+            music.play();
+            msg.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
